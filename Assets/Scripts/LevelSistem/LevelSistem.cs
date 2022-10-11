@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class LevelSistem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Car car;
+    public SignSpawner signSpawner;
+    public GroundSpawner groundSpawner;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Update() {
+        if(car.jarakTempuh > 300){
+            signSpawner.maxSign = 12;
+        }
+        else if(car.jarakTempuh > 250){
+            signSpawner.maxSign = 9;
+        }
+        else if(car.jarakTempuh > 100){
+            signSpawner.maxSign = 6;
+        }
     }
 }
